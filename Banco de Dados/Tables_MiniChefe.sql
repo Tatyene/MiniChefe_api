@@ -8,30 +8,14 @@ CREATE TABLE Usuario (
   PRIMARY KEY (ID)
 );
 
-CREATE TABLE Ingredientes (
-  ID serial NOT NULL,
-  Descricao varchar(500),
-  PRIMARY KEY (ID)
-);
-
-CREATE TABLE Preparo (
-  ID serial NOT NULL,
-  Passo integer,
-  Descricao varchar(500),
-  PRIMARY KEY (ID)
-);
-
 CREATE TABLE Receita (
   ID_Usuario serial NOT NULL,
   Titulo char(50),
   Descricao varchar(500),
-  ID_Ingrediente serial NOT NULL,
-  ID_Preparo serial NOT NULL,
+  Ingrediente varchar(5000),
+  Preparo varchar(500),
   Imagem bytea,
-  Tipo char(20),
-  PRIMARY KEY (ID),
-	CONSTRAINT fk_Ingrediente FOREIGN KEY(ID_Ingrediente) REFERENCES Ingredientes(ID),
-	CONSTRAINT fk_Preparo FOREIGN KEY(ID_Preparo) REFERENCES Preparo(ID)
+  PRIMARY KEY (ID)
 );
 
 CREATE TABLE Avaliacao (
